@@ -24,8 +24,8 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public UpdateUserDto updateUser(UpdateUserDto updateUserDto) {
-        User user = userRepository.findById(updateUserDto.getId()).get();
+    public UpdateUserDto updateUser(UpdateUserDto updateUserDto, Long id) {
+        User user = userRepository.findById(id).get();
         user.setFirstName(updateUserDto.getFirstName());
         user.setLastName(updateUserDto.getLastName());
         user.setEmail(updateUserDto.getEmail());

@@ -21,9 +21,10 @@ public class UserController {
         return savedUserDto != null ? ResponseEntity.ok(savedUserDto) : ResponseEntity.notFound().build();
     }
 
-    @PostMapping("/update-user")
-    public ResponseEntity<UpdateUserDto> updateUser(@RequestBody UpdateUserDto updateUserDto) {
-        UpdateUserDto updatedUserDto = userService.updateUser(updateUserDto);
+    @PostMapping("/update-user/{id}")
+    public ResponseEntity<UpdateUserDto> updateUser(@RequestBody UpdateUserDto updateUserDto,
+                                                    @PathVariable(name = "id") Long id) {
+        UpdateUserDto updatedUserDto = userService.updateUser(updateUserDto, id);
         return updatedUserDto != null ? ResponseEntity.ok(updatedUserDto) : ResponseEntity.notFound().build();
     }
 

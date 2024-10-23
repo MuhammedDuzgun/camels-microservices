@@ -6,7 +6,7 @@ import com.camels.user_service.entity.User;
 
 public interface IUserService {
     SaveUserDto saveUser(SaveUserDto saveUserDto);
-    UpdateUserDto updateUser(UpdateUserDto updateUserDto);
+    UpdateUserDto updateUser(UpdateUserDto updateUserDto, Long id);
     User getMyProfile(Long id);
     void deleteUser(Long id);
 }
